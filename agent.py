@@ -1,5 +1,4 @@
 from dotenv import load_dotenv
-# from langchain_openai import ChatOpenAI
 from langchain_openai import AzureChatOpenAI
 from langchain.agents import initialize_agent
 from langchain.agents.agent_types import AgentType
