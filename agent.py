@@ -12,7 +12,6 @@ def calculator(expression: str) -> str:
     """Evaluates a math expression."""
     return str(eval(expression))
 
-
 @tool
 def wiki_search(query: str) -> str:
     """Search Wikipedia for a topic."""
