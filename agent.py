@@ -5,10 +5,7 @@ from langchain.agents.agent_types import AgentType
 from langchain.tools import tool
 import wikipedia
 
-# Load environment variables from .env
 load_dotenv()
-
-# 1️⃣ Define tools
 
 @tool
 def calculator(expression: str) -> str:
@@ -24,17 +21,13 @@ def wiki_search(query: str) -> str:
     except:
         return "No result found."
 
-
-# 2️⃣ Create LLM
 llm = AzureChatOpenAI(
     model="gpt-4o",
     temperature=0
 )
 
-# 3️⃣ Register tools
 tools = [calculator, wiki_search]
 
-# 4️⃣ Initialize agent
 agent = initialize_agent(
     tools=tools,
     llm=llm,
@@ -42,7 +35,6 @@ agent = initialize_agent(
     verbose=True
 )
 
-# 5️⃣ Ask the agent something
 response = agent.run(
     "What is the population of France divided by 2?"
 )
